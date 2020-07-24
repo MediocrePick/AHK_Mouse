@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -14,7 +14,7 @@ Loop {
 	MouseMove, CenterX, CenterY, 0
 
 	; Receive user "arrow keys" and check for input errors
-	Input, UserInput, L1 T600, {Esc}, j,k,l,i,u,o,h,;,',a,s,d,f,n,m
+	Input, UserInput, L1 T600, {Esc} {Enter}, j,k,l,i,u,o,h,;,',a,s,d,f,n,m,e,r
 	if (ErrorLevel = "Max")
 	{
 		MsgBox, You entered "%UserInput%", which is not a valid input.
@@ -27,7 +27,6 @@ Loop {
 	}
 	if InStr(ErrorLevel, "EndKey:")
 	{
-		MsgBox, Terminated the input with %ErrorLevel%.
 		break
 	}
 	
@@ -115,6 +114,14 @@ Loop {
 	{
 		Click, WheelUp
 	}
+	if (UserInput = "e")
+	{
+		Click, X1
+	}
+	if (UserInput = "r")
+	{
+		Click, X2
+	}
 
 	; Center the mouse
 	if (UserInput = "a")
@@ -149,7 +156,7 @@ Loop {
 			if (DragStart && DragEnd)
 		{
 			SendMode Event
-			MouseClickDrag, Left, DragStartX, DragStartY, CenterX, CenterY, 0
+			MouseClickDrag, Left, DragStartX, DragStartY, CenterX, CenterY, 4
 			SendMode Input
 			DragStart := false
 			DragEnd := false
