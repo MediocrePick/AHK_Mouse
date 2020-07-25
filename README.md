@@ -7,38 +7,39 @@ There are two modes of movement: Increment and BinarySearch. Increment is the st
 
 CONTROLS
 --------
-Program Flow:
-Alt + Shift + M: Start script in BinarySearch mode
-Esc: End script without error message
-Enter: End script without error message
-Any unbound keys: Exit with error message
+Program Flow:\
+Alt + Shift + M: Start script in BinarySearch mode\
+Esc: End script without error message\
+Enter: End script without error message\
+Any unbound keys: Exit with error message\
 Timout: Exit with error message, default timeout set to 10 minutes
 
-Cursor movement:
-j: Left
-l: Right
-i: Up
+Cursor movement:\
+j: Left\
+l: Right\
+i: Up\
 k: Down
 
-Click:
-u: Left click and continue using script
-o: Right click and continue using script
-f: Left click and exit script
-d: Right click and exit script
-e: Mouse4 click, "browser back" and continue using script
-r: Mouse5 click, "browser forward" and continue using script
+Click:\
+u: Left click and continue using script\
+o: Right click and continue using script\
+f: Left click and exit script\
+d: Right click and exit script\
+e: Mouse4 click, "browser back" and continue using script\
+r: Mouse5 click, "browser forward" and continue using script\
 h: Click and drag. Press once at the starting location of drag and then press again at ending location of the drag. Continues using script
 
-Scroll:
-;: Scroll down
+Scroll:\
+;: Scroll down\
 ': Scroll up
 
-Modes:
-s: Switch between BinarySearch and Increment
-m: (Only works in Increment mode) Decrease number of pixels that the cursor moves by half
-n: (Only works in Increment mode) Increase number of pixels that the cursor moves by 2x
+Modes:\
+s: Switch between BinarySearch and Increment mode\
+m: (Only works in Increment mode) Decrease number of pixels that the cursor moves by half\
+n: (Only works in Increment mode) Increase number of pixels that the cursor moves by 2x\
 a: Center the cursor and resets "screen". Reset to BinarySearch mode. Reset the amount of pixels traveled by the cursor in Increment mode
 
 
 NOTES
 -----
+On a screen resolution of 1366x768 it takes ~8 key presses to get to any 30x30 target on the screen. Due to the nature of binary searches, a significant increase in screen size would not significantly increase the number of key presses needed to get to any particular area on the screen. This feature, used alongside Increment mode is a fairly efficient alternative to a standard mouse. Also note the fact that many screen targets are larger than 30x30.
