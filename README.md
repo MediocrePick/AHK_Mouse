@@ -45,8 +45,7 @@ INSTALLATION INSTRUCTIONS
 2. Right-click on desktop and select "New" -> "AutoHotKey Script"
 3. Copy Mouse.ahk from Github repository and paste into your newly created script
 4. Save
-5. Right-click on newly created script and select "Compile"
-6. Right-click on newly created script and select "Run"
+5. Right-click on newly created script and select "Run"
 
 
 NOTES
