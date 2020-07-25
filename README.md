@@ -1,10 +1,14 @@
 # AHK_Mouse
-Control mouse movement with keyboard
+AutoHotKey script to control mouse movement with keyboard
 
-There are two modes of movement: Increment and BinarySearch. Increment is the standard method of moving a mouse where a direction key is pressed and then the cursor moves a certain number of pixels in that direction. BinarySearch starts the cursor in the center of the screen. The screen can be conceptually subdivided into 4 "halves" (top half, bottom half, right half, left half). When a direction key is pressed, the mouse jumps to the center of the selected half which becomes the new "screen" and then subdivides that "screen" into 4 "halves" again. This can be repeated until the available "screen" becomes small enough where the screen center(the cursor) is over the target location.
+SUMMARY
+-------
+There are two modes of movement: Increment and BinarySearch. Increment is the standard method of moving a mouse where a direction key is pressed and then the cursor moves a certain number of pixels in that direction. BinarySearch starts the cursor in the center of the screen. The screen can be conceptually subdivided into 4 "halves" (top half, bottom half, right half, left half). When a direction key is pressed, the mouse jumps to the center of the selected half which becomes the new "screen" and then subdivides that "screen" into 4 "halves" again. This can be repeated until the available "screen" becomes small enough where the screen center (and therefore the cursor) is over the target.
 
-Script Flow Controls:
-Alt + Shift + M: Start script
+CONTROLS
+--------
+Program Flow:
+Alt + Shift + M: Start script in BinarySearch mode
 Esc: End script without error message
 Enter: End script without error message
 Any unbound keys: Exit with error message
@@ -19,5 +23,22 @@ k: Down
 Click:
 u: Left click and continue using script
 o: Right click and continue using script
-f: Left click and exit script without error message
-d: Right click and exit script without error message
+f: Left click and exit script
+d: Right click and exit script
+e: Mouse4 click, "browser back" and continue using script
+r: Mouse5 click, "browser forward" and continue using script
+h: Click and drag. Press once at the starting location of drag and then press again at ending location of the drag. Continues using script
+
+Scroll:
+;: Scroll down
+': Scroll up
+
+Modes:
+s: Switch between BinarySearch and Increment
+m: (Only works in Increment mode) Decrease number of pixels that the cursor moves by half
+n: (Only works in Increment mode) Increase number of pixels that the cursor moves by 2x
+a: Center the cursor and resets "screen". Reset to BinarySearch mode. Reset the amount of pixels traveled by the cursor in Increment mode
+
+
+NOTES
+-----
