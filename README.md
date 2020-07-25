@@ -41,12 +41,12 @@ a: Center the cursor and resets "screen". Reset to BinarySearch mode. Reset the 
 
 INSTALLATION INSTRUCTIONS
 -------------------------
-1. Download AutoHotKey from their website: https://www.autohotkey.com/ \
-2. Right-click on desktop and select "New" -> "AutoHotKey Script" \
-3. Copy Mouse.ahk from Github repository and paste into your newly created script \
-4. Save \
-5. Right-click on newly created script and select "Compile" \
-6. Right-click on newly created script and select "Run" \
+1. Download AutoHotKey from their website: https://www.autohotkey.com/
+2. Right-click on desktop and select "New" -> "AutoHotKey Script"
+3. Copy Mouse.ahk from Github repository and paste into your newly created script
+4. Save
+5. Right-click on newly created script and select "Compile"
+6. Right-click on newly created script and select "Run"
 
 
 NOTES
