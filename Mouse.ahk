@@ -19,7 +19,7 @@ Loop {
 	MouseMove, CenterX, CenterY, 0
 
 	; Receive user "arrow keys" and check for input errors
-	Input, UserInput, L1 T600, {Esc} {Enter}, j,k,l,i,u,o,h,;,',a,s,d,f,n,m,e,r
+	Input, UserInput, L1 T600, {Esc} {Enter}, j,k,l,i,u,o,h,;,',a,s,d,f,n,m,e,r,:,"
 	if (ErrorLevel = "Max")
 	{
 		MsgBox, You entered "%UserInput%", which is not a valid input.
@@ -110,7 +110,7 @@ Loop {
 		break
 	}
 
-	; Scroll the wheel up and down
+	; Scroll the wheel up, down, right, and left, respectively
 	if (UserInput = ";")
 	{
 		Click, WheelDown
@@ -118,6 +118,16 @@ Loop {
 	if (UserInput = "'")
 	{
 		Click, WheelUp
+	}
+	if (UserInput = ":")
+	{
+		ControlGetFocus, fcontrol, A
+		SendMessage, 0x114, 1, 0, %fcontrol%, A  
+	}
+	if UserInput = "
+	{
+		ControlGetFocus, fcontrol, A
+		SendMessage, 0x114, 0, 0, %fcontrol%, A  
 	}
 	
 	; Page back, page forward
