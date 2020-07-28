@@ -15,29 +15,32 @@ Any unbound keys: Exit with error message\
 Timout: Exit with error message, default timeout set to 10 minutes
 
 Cursor movement:\
-j: Left\
-l: Right\
-i: Up\
-k: Down
+j => Left\
+l => Right\
+i => Up\
+k => Down
 
 Click:\
-u: Left click and continue using script\
-o: Right click and continue using script\
-f: Left click and exit script\
-d: Right click and exit script\
-e: Mouse4 click, "browser back" and continue using script\
-r: Mouse5 click, "browser forward" and continue using script\
-h: Click and drag. Press once at the starting location of drag and then press again at ending location of the drag. Continues using script
+u => Left click and continue using script\
+o => Right click and continue using script\
+f => Left click and exit script\
+d => Right click and exit script\
+e => Mouse4 click, "browser back" and continue using script\
+r => Mouse5 click, "browser forward" and continue using script\
+h => Click and drag. Press once at the starting location of drag and then press again at ending location of the drag. Continues using script
 
 Scroll:\
-;: Scroll down\
-': Scroll up
+; => Scroll down\
+' => Scroll up\
+: => Scroll right\
+" => Scroll left
+
 
 Modes:\
-s: Switch between BinarySearch and Increment mode\
-m: (Only works in Increment mode) Decrease number of pixels that the cursor moves by half\
-n: (Only works in Increment mode) Increase number of pixels that the cursor moves by 2x\
-a: Center the cursor and resets "screen". Reset to BinarySearch mode. Reset the amount of pixels traveled by the cursor in Increment mode
+s => Switch between BinarySearch and Increment mode\
+m => (Increment mode only) Decrease number of pixels that the cursor moves by half\
+n => (Increment mode only) Increase number of pixels that the cursor moves by 2x\
+a => Center the cursor and resets "screen". Reset to BinarySearch mode. Reset the amount of pixels traveled by the cursor in Increment mode
 
 INSTALLATION INSTRUCTIONS
 -------------------------
