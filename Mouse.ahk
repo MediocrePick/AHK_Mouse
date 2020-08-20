@@ -3,7 +3,6 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-+!m::
 ; Initialize variables
 DragStart := false
 DragEnd := false
@@ -12,7 +11,17 @@ Increment := 20
 CoordMode, Mouse, Screen
 SysGet, VirtualWidth, 78
 SysGet, VirtualHeight, 79
+vGuiXLoc := VirtualWidth - 100
+vGuiYLoc := VirtualHeight - 80
 
++!m::
+; Create small icon on the bottom right of the screen when mouse is running
+Gui, MouseGui:Font, cBlue s32 bold, Arial 
+Gui, MouseGui:Add, Text,, M
+Gui, MouseGui:Color, FFFFFF
+Gui, MouseGui:+LastFound +AlwaysOnTop -Caption +ToolWindow
+WinSet, TransColor, FFFFFF 150
+Gui, MouseGui:Show, y%vGuiYLoc% x%vGuiXLoc% NoActivate
 
 Loop {	
 	; Move mouse to center of "screen"
@@ -183,4 +192,7 @@ Loop {
 		}
 	}
 }
+
+; Remove icon when mouse is not active 
+Gui, MouseGui:Destroy
 return
