@@ -13,6 +13,32 @@ SysGet, VirtualWidth, 78
 SysGet, VirtualHeight, 79
 vGuiXLoc := VirtualWidth - 100
 vGuiYLoc := VirtualHeight - 80
+KeyLeftArrow = j
+KeyRightArrow = l
+KeyUpArrow = i
+KeyDownArrow = k
+
+KeyDecrement = m
+KeyIncrement = n
+
+KeyLeftClick = u
+KeyRightClick = o
+
+KeyLeftClickBreak = f
+KeyRightClickBreak = d
+
+KeyScrollDown := ";"
+KeyScrollUp = '
+KeyScrollRight := ":"
+KeyScrollLeft = `"
+
+KeyPageBack = e
+KeyPageForward = r
+
+KeyCenterMouse = a
+KeySwitchMode = s
+
+KeyDragClick = h
 
 +!m::
 ; Create small icon on the bottom right of the screen when mouse is running
@@ -27,8 +53,10 @@ Loop {
 	; Move mouse to center of "screen"
 	MouseMove, CenterX, CenterY, 0
 
-	; Receive user "arrow keys" and check for input errors
-	Input, UserInput, L1 T600, {Esc} {Enter}, j,k,l,i,u,o,h,;,',a,s,d,f,n,m,e,r,:,"
+	; Receive user input and check for input errors
+	Input, UserInput, L1 T600, {Esc} {Enter}, %KeyLeftArrow%,%KeyRightArrow%,%KeyUpArrow%,%KeyDownArrow%,%KeyDecrement%,%KeyIncrement%,%KeyLeftClick%,%KeyRightClick%,%KeyLeftClickBreak%,%KeyRightClickBreak%,%KeyScrollDown%,%KeyScrollUp%,%KeyScrollRight%,%KeyScrollLeft%,%KeyPageBack%,%KeyPageForward%,%KeyCenterMouse%,%KeySwitchMode%,%KeyDragClick%
+	; QUERTY j,k,l,i,u,o,h,;,',a,s,d,f,n,m,e,r,:,"
+
 	if (ErrorLevel = "Max")
 	{
 		MsgBox, You entered "%UserInput%", which is not a valid input.
@@ -47,49 +75,49 @@ Loop {
 	; If no input errors, move the mouse coordinates depending on the movement mode
 	if(IncrementMode)
 	{
-		if (UserInput = "j")
+		if (UserInput = KeyLeftArrow )
 		{
 			CenterX := CenterX - Increment
 		}
-		if (UserInput = "l")
+		if (UserInput = KeyRightArrow)
 		{
 			CenterX := CenterX + Increment
 		}
-		if (UserInput = "i")
+		if (UserInput = KeyUpArrow)
 		{
 			CenterY := CenterY - Increment
 		}
-		if (UserInput = "k")
+		if (UserInput = KeyDownArrow)
 		{
 			CenterY := CenterY + Increment
 		}
-		if (UserInput = "m")
+		if (UserInput = KeyDecrement)
 		{
 			Increment := Increment/2
 		}
-		if (UserInput = "n")
+		if (UserInput = KeyIncrement)
 		{
 			Increment := Increment * 2
 		}
 	}
 	else
 	{	
-		if (UserInput = "j")
+		if (UserInput = KeyLeftArrow)
 		{
 			EdgeRightX := CenterX
 			CenterX:= (CenterX + EdgeLeftX)/2
 		}
-		if (UserInput = "l")
+		if (UserInput = KeyRightArrow)
 		{
 			EdgeLeftX := CenterX
 			CenterX:= (CenterX + EdgeRightX)/2
 		}
-		if (UserInput = "i")
+		if (UserInput = KeyUpArrow)
 		{
 			EdgeBottomY := CenterY
 			CenterY := (CenterY + EdgeTopY)/2
 		}
-		if (UserInput = "k")
+		if (UserInput = KeyDownArrow)
 		{
 			EdgeTopY := CenterY
 			CenterY := (CenterY + EdgeBottomY)/2
@@ -98,59 +126,59 @@ Loop {
 	}
 
 	; Clicks with the right hand keys do not break out of the loop
-	if (UserInput = "u")
+	if (UserInput = KeyLeftClick)
 	{
 		Click
 	}
-	if (UserInput = "o")
+	if (UserInput = KeyRightClick)
 	{
 		Click, Right
 	}
 
-	; Clicks with the left hand keys do break out of the loop
-	if (UserInput = "f")
+	; Clicks with the left hand keys break out of the loop
+	if (UserInput = KeyLeftClickBreak )
 	{
 		Click
 		break
 	}	
-	if (UserInput = "d")
+	if (UserInput = KeyRightClickBreak)
 	{
 		Click, Right
 		break
 	}
 
 	; Scroll the wheel up, down, right, and left, respectively
-	if (UserInput = ";")
+	if (UserInput = KeyScrollDown)
 	{
 		Click, WheelDown
 	}
-	if (UserInput = "'")
+	if (UserInput = KeyScrollUp)
 	{
 		Click, WheelUp
 	}
-	if (UserInput = ":")
+	if (UserInput = KeyScrollRight)
 	{
 		ControlGetFocus, fcontrol, A
 		SendMessage, 0x114, 1, 0, %fcontrol%, A  
 	}
-	if UserInput = "
+	if (UserInput = KeyScrollLeft)
 	{
 		ControlGetFocus, fcontrol, A
 		SendMessage, 0x114, 0, 0, %fcontrol%, A  
 	}
 	
 	; Page back, page forward
-	if (UserInput = "e")
+	if (UserInput = KeyPageBack)
 	{
 		Click, X1
 	}
-	if (UserInput = "r")
+	if (UserInput = KeyPageForward)
 	{
 		Click, X2
 	}
 
 	; Center the mouse and switch to BinarySearch mode. Reset Increment amount.
-	if (UserInput = "a")
+	if (UserInput = KeyCenterMouse)
 	{
 		EdgeLeftX := 0
 		EdgeRightX := VirtualWidth
@@ -163,13 +191,13 @@ Loop {
 	}
 	
 	; Switch movement modes
-	if (UserInput = "s")
+	if (UserInput = KeySwitchMode)
 	{
 		IncrementMode := !IncrementMode
 	}
 	
 	; Click and drag functionality
-	if (UserInput = "h")
+	if (UserInput = KeyDragClick)
 	{
 		if (!DragStart)
 		{
